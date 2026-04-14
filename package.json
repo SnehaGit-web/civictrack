@@ -1,0 +1,14 @@
+{
+  "name": "civictrack",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "test": "npm test --workspace=server"
+  },
+  "dependencies": {
+    "axios": "^1.15.0"
+  }
+}
