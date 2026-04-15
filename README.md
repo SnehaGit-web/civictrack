@@ -31,6 +31,25 @@ Built as a portfolio project targeting IBM Consulting's Application Developer ro
 
 ---
 
+## Screenshots
+
+### Login Page
+![Login](docs/screenshots/screenshot-login.png)
+
+### Citizen Dashboard
+![Citizen Dashboard](docs/screenshots/screenshot-citizen.png)
+
+### Submit a Request
+![Submit Request](docs/screenshots/screenshot-submit.png)
+
+### Admin Dashboard
+![Admin Dashboard](docs/screenshots/screenshot-admin.png)
+
+### Status Update
+![Status Update](docs/screenshots/screenshot-modal.png)
+
+---
+
 ## Architecture
 
 ```
