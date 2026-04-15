@@ -9,8 +9,8 @@ const app = express();
 
 app.use(cors({
   origin: [
-    process.env.CLIENT_URL ?? 'http://localhost:5173',
-    'https://civictrack.vercel.app',
+    'http://localhost:5173',
+    'https://civictrack-client.vercel.app',
   ],
   credentials: true,
 }));
