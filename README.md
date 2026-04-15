@@ -8,10 +8,12 @@ Built as a portfolio project targeting IBM Consulting's Application Developer ro
 
 ## Live Demo
 
+🌐 **[https://civictrack-client.vercel.app](https://civictrack-client.vercel.app)**
+
 | Role    | Email                  | Password    |
 |---------|------------------------|-------------|
 | Admin   | admin@civictrack.ca    | admin123    |
-| Citizen | jane2@example.com      | password123 |
+| Citizen | sneha@civic.com        | Sneha@123   |
 
 ---
 
