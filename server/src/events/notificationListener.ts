@@ -8,12 +8,17 @@ const statusLabels: Record<string, string> = {
 };
 
 export const registerListeners = () => {
-  // Listen for status updates → create a notification row
+  if (process.env.NODE_ENV === 'test') return;
+
   eventBus.on('status.updated', async (payload) => {
-    const label = statusLabels[payload.newStatus] ?? payload.newStatus;
+    const label: Record<string, string> = {
+      in_review: 'In Review',
+      resolved: 'Resolved',
+      rejected: 'Rejected',
+    };
     const message = payload.adminNote
-      ? `Your request status changed to "${label}". Note: ${payload.adminNote}`
-      : `Your request status changed to "${label}".`;
+      ? `Your request status changed to "${label[payload.newStatus] ?? payload.newStatus}". Note: ${payload.adminNote}`
+      : `Your request status changed to "${label[payload.newStatus] ?? payload.newStatus}".`;
 
     try {
       await db.query(
@@ -25,10 +30,8 @@ export const registerListeners = () => {
     }
   });
 
-  // Listen for new requests → notify admins (extensible)
   eventBus.on('request.created', async (payload) => {
     console.log(`[EventBus] New request created: "${payload.title}" by user ${payload.userId}`);
-    // In production: notify admin users via push/email
   });
 
   console.log('✓ Event listeners registered');

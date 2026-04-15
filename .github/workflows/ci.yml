@@ -43,6 +43,6 @@ jobs:
         run: npm test
         working-directory: server
         env:
-          DATABASE_URL: postgresql://postgres:postgres_DB@localhost:5432/civictrack_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/civictrack_test
           JWT_SECRET: ci-test-secret
           NODE_ENV: test

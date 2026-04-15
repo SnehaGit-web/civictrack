@@ -1,3 +1,4 @@
+process.env.JWT_SECRET = 'civictrack-dev-secret';
 import { generateToken } from '../src/middleware/auth';
 import * as jwt from 'jsonwebtoken';
 
