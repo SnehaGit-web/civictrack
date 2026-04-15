@@ -1,24 +1,24 @@
 import { eventBus } from './eventBus';
 import { db } from '../db/pool';
 
-const statusLabels: Record<string, string> = {
+const STATUS_LABELS: Record<string, string> = {
   in_review: 'In Review',
-  resolved: 'Resolved',
-  rejected: 'Rejected',
+  resolved:  'Resolved',
+  rejected:  'Rejected',
 };
+
+function statusLabel(status: string): string {
+  return STATUS_LABELS[status] ?? status;
+}
 
 export const registerListeners = () => {
   if (process.env.NODE_ENV === 'test') return;
 
   eventBus.on('status.updated', async (payload) => {
-    const label: Record<string, string> = {
-      in_review: 'In Review',
-      resolved: 'Resolved',
-      rejected: 'Rejected',
-    };
-    const message = payload.adminNote
-      ? `Your request status changed to "${label[payload.newStatus] ?? payload.newStatus}". Note: ${payload.adminNote}`
-      : `Your request status changed to "${label[payload.newStatus] ?? payload.newStatus}".`;
+    const label = statusLabel(payload.newStatus);
+    const message = payload.adminNote?.trim()
+      ? `Your request status changed to "${label}". Note: ${payload.adminNote.trim()}`
+      : `Your request status changed to "${label}".`;
 
     try {
       await db.query(
