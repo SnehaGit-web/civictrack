@@ -8,7 +8,10 @@ import adminRoutes from './routes/admin';
 const app = express();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL ?? 'http://localhost:5173',
+  origin: [
+    process.env.CLIENT_URL ?? 'http://localhost:5173',
+    'https://civictrack.vercel.app',
+  ],
   credentials: true,
 }));
 
